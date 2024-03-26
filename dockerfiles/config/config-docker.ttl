@@ -11,6 +11,9 @@
 @prefix skosmos: <http://purl.org/net/skosmos#> .
 @prefix isothes: <http://purl.org/iso25964/skos-thes#> .
 @prefix mdrtype: <http://publications.europa.eu/resource/authority/dataset-type/> .
+@prefix ex: <http://example.org/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix : <#> .
 
 # Skosmos main configuration
@@ -18,7 +21,7 @@
 :config a skosmos:Configuration ;
     # SPARQL endpoint
     # a local Fuseki server is usually on localhost:3030
-    skosmos:sparqlEndpoint <https://api.duo.triply.cc/datasets/duo/datasets/services/datasets/sparql> ;
+    skosmos:sparqlEndpoint <https://api.duo.triply.cc/queries/duo/Query/1/run> ;
     # sparql-query extension, or "Generic" for plain SPARQL 1.1
     # set to "JenaText" instead if you use Fuseki with jena-text index
     skosmos:sparqlDialect "Generic" ;
@@ -82,4 +85,8 @@
     # plugins to activate for the whole installation (including all vocabularies)
     skosmos:globalPlugins () .
 
+# Skosmos vocabularies
 
+ex:sparqlEndpoint a void:Dataset ;
+    dc:title "SPARQL Endpoint: https://api.duo.triply.cc/queries/duo/Query/1/run" ;
+    void:sparqlEndpoint <https://api.duo.triply.cc/queries/duo/Query/1/run> .
